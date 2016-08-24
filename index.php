@@ -1,11 +1,14 @@
 <?php
 	session_start();
+	# init.php contains database details
 	require_once('init.php');
 
 
-
+# Checking is submit button is clicked or login form is submitted
 if(isset($_POST['submit']))
 	{
+
+		# Using mysql_real_escape_string escape sql injection attacks
 
 	    $email=mysql_real_escape_string(stripslashes($_POST['email']));
 		$password=mysql_real_escape_string(stripslashes($_POST['password']));
@@ -18,6 +21,8 @@ if(isset($_POST['submit']))
 		if($count == 1)
 		{
 		  	$_SESSION["email"] = $row['email'];
+
+		  	# Redirecting to the same page after successful login
 		  	header('Location: ');
 			
 		}
@@ -26,10 +31,14 @@ if(isset($_POST['submit']))
 			echo "wrong credentials";
 		}
 	}
+
+# Checking if there is an existing session or not if yes then redirecting to same page with different content
 elseif (isset($_SESSION["email"]))
 	{
 		echo $_SESSION["email"];
 		
+
+		# Logout Button 
 		echo '
 				<form method="POST">
 				  <input type="submit" name="logout" value="Logout"/>
@@ -38,8 +47,11 @@ elseif (isset($_SESSION["email"]))
 
 		if(isset($_POST['logout']))
 		{
+			# Destroying Session and Loggin Out
 			session_destroy();
-			header('Location: '); //Dont forget to redirect
+
+			# Redirecting to same page
+			header('Location: '); 
 			
 		}
 
@@ -47,6 +59,7 @@ elseif (isset($_SESSION["email"]))
 	}
 else
 { 
+	# This is the HTML page that contains Login Form and it is only loaded when there is not any session
     
     echo'<!DOCTYPE html>
 	<html lang="en">
