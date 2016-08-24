@@ -8,16 +8,16 @@
 if(isset($_POST['submit']))
 	{
 
-		# Using mysql_real_escape_string escape sql injection attacks
+		# Using mysqli_real_escape_string escape sql injection attacks
 
-	    $email=mysql_real_escape_string(stripslashes($_POST['email']));
-		$password=mysql_real_escape_string(stripslashes($_POST['password']));
+	    $email=mysqli_real_escape_string($conn,stripslashes($_POST['email']));
+		$password=mysqli_real_escape_string($conn,stripslashes($_POST['password']));
 
 		$sql="SELECT * FROM users WHERE email='$email' and password='$password'";
-		$result=mysql_query($sql);
-		$row  = mysql_fetch_array($result);
+		$result=mysqli_query($conn,$sql);
+		$row  = mysqli_fetch_array($result);
 
-		$count=mysql_num_rows($result);
+		$count=mysqli_num_rows($result);
 		if($count == 1)
 		{
 		  	$_SESSION["email"] = $row['email'];
