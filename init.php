@@ -2,7 +2,7 @@
 
 	$username = "root";
 	$password = "";
-	$database = "login";
+	$database = "webapp";
 	$server = "127.0.0.1";
 
 	$db_handle = mysql_connect($server, $username, $password);
