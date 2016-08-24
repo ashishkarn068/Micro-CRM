@@ -5,8 +5,13 @@
 	$database = "webapp";
 	$server = "127.0.0.1";
 
-	$db_handle = mysql_connect($server, $username, $password);
-	$db_found = mysql_select_db($database, $db_handle);
+	$conn = mysql_connect($server, $username, $password);
+	$db_found = mysql_select_db($database, $conn) or die("Could Not Connect");
+
+	if(! $conn )
+	{
+	  die('Could not connect: ' . mysql_error());
+	}
 
 
 ?>
