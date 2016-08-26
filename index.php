@@ -150,6 +150,9 @@ elseif (isset($_SESSION["email"]))
 			$clientEmail = stripslashes($_POST['client_email']);
 			$mailList 	 = stripcslashes($_POST['mail_list_option']);
 
+			# Calling addNewClient() with required parameters to add the client to specific Mailing List
+
+			addNewClient($clientEmail, $clientName,MAILGUN_KEY, MAILGUN_SECRET, $mailList, MAILGUN_DOMAIN, $mailgunValidate, $mailgunOptIn);
 
 		}
 
