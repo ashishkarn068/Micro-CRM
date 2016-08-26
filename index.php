@@ -174,7 +174,18 @@ elseif (isset($_SESSION["email"]))
 				
 			}
 
-			
+			if(isset($_POST['submit_list']))
+			{
+				$address 			= $_POST['list_address'];
+				$description 	    = $_POST['list_description'];
+
+				# Passing parameters to createMailingList function to create a new mailing list.
+
+				createMailingList(MAILGUN_KEY, MAILGUN_DOMAIN, $address, $description);
+
+			}
+
+
 		if(isset($_POST['logout']))
 		{
 			
