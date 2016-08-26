@@ -4,6 +4,18 @@
 	require_once('init.php');
 
 
+# Function for logging out
+
+	function logout()
+	{
+			# Destroying Session and Loggin Out
+			session_destroy();
+
+			# Redirecting to same page
+			header('Location: http://localhost/webapp'); 
+	}
+
+
 # Checking is submit button is clicked or login form is submitted
 if(isset($_POST['submit']))
 	{
@@ -47,11 +59,10 @@ elseif (isset($_SESSION["email"]))
 
 		if(isset($_POST['logout']))
 		{
-			# Destroying Session and Loggin Out
-			session_destroy();
+			
+			# Calling logout() to do logout
 
-			# Redirecting to same page
-			header('Location: '); 
+			logout();
 			
 		}
 
