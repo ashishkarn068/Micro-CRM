@@ -35,7 +35,7 @@ After setting up database and init.php file just open the link http://localhost/
 
 * Deployment instructions
 
-When you are using a free sandbox domain provided by Mailgun, then to add a new client use only the email address you used to register at Mailgun. To add other  email Ids you need to add your own domain to your Mailgun Account. For test purpose u can use my email ID **ashishkarn068@gmail.com**
+When you are using a free sandbox domain provided by Mailgun, then to add a new client use only the email address you used to register at Mailgun. To add other  email Ids you need to add your own domain to your Mailgun Account. For test purpose u can use my email ID **ashishkarn068@gmail.com** but you won't be able to see any confirmation mail as it will be reaching to my email ID.
 
 
 
