@@ -156,6 +156,18 @@ elseif (isset($_SESSION["email"]))
 
 		}
 
+
+
+			if(isset($_POST['send_mail']))
+			{
+				$subject = stripcslashes($_POST['subject']);
+				$body 	 = stripcslashes($_POST['body']);
+				$$mailList 	 = stripcslashes($_POST['mail_list_option2']);
+				$ExceptionMsg = NULL;
+				
+			}
+
+
 		if(isset($_POST['logout']))
 		{
 			
