@@ -23,14 +23,19 @@
 	define('MAILGUN_LIST', 'news@sandboxb676bd5381e6447d9493afe671a8d24c.mailgun.org');
 	define('MAILGUN_SECRET', 'It\'s not who I am underneath but what I do that defines me');
 
+	$client = new \Http\Adapter\Guzzle6\Client();
+
 	# Now going to create two mailgun instances, one with MAILGUN_KEY and othe with MAILGUN_PUBKEY
 
 	# This gives all functionalities to add users, send emails and et cetera
-	$mailgun = new Mailgun\Mailgun(MAILGUN_KEY);
+	$mailgun = new Mailgun\Mailgun(MAILGUN_KEY, $client);
 
+	
+	
 	# This validates the email
 
-	$mailgunValidate = new Mailgun\Mailgun(MAILGUN_PUBKEY);
+
+	$mailgunValidate = new Mailgun\Mailgun(MAILGUN_PUBKEY, $client);
 
 	# This helps in adding users to lists
 
