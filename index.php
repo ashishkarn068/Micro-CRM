@@ -78,6 +78,34 @@
 				header('Location: http://localhost/webapp');
 	}
 
+
+
+# Fucntion to send mail to a specific Mailing List
+
+		function sendNewMail($mailgunkey, $mailgundomain, $mailList, $subject, $body)
+		{
+
+				$mailgun= new Mailgun\Mailgun($mailgunkey);
+			try
+				{
+					$mailgun->sendMessage(MAILGUN_DOMAIN,[
+
+						'from'			=> 'test@samples.mailgun.org',
+						'to'			=> MAILGUN_LIST,
+						'subject'		=> $subject,
+						'html'			=> $body.'<br><br><a href="%unsubscribe_url%">Unsubscribe</a>'
+
+					]);
+				}
+				catch(Exception $e)
+				{
+					$ExceptionMsg =  $e->getMessage();
+					echo $ExceptionMsg;
+				}
+		}
+
+
+
 # Checking is submit button is clicked or login form is submitted
 if(isset($_POST['submit']))
 	{
