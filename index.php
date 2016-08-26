@@ -50,12 +50,8 @@ elseif (isset($_SESSION["email"]))
 		echo $_SESSION["email"];
 		
 
-		# Logout Button 
-		echo '
-				<form method="POST">
-				  <input type="submit" name="logout" value="Logout"/>
-				</form>
-		';
+		# adding component for adding client name and mail
+		include 'content.php';
 
 		if(isset($_POST['logout']))
 		{
