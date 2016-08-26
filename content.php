@@ -82,7 +82,67 @@
 																	</div>
 																</div>
 															</div>
-															
+															<div class="col-md-8" style="padding-top:50px;">
+																<!-- Nav tabs -->
+																<ul class="nav nav-tabs" role="tablist">
+																	<li role="presentation" class="active">
+																		<a href="#panel1" aria-controls="home" role="tab" data-toggle="tab">Add New Mailing List</a>
+																	</li>
+																	<li role="presentation">
+																		<a href="#panel2" aria-controls="profile" role="tab" data-toggle="tab">Send New Mail</a>
+																	</li>
+																</ul>
+																<!-- Tab panes -->
+																<div class="tab-content">
+																	<div role="tabpanel" class="tab-pane active" id="panel1">
+																		<form role="form" action="" method="post" >
+																			<div  style="background-color:white; padding:14px;">
+																				<div class="form-group">
+																					<div class="input-group">
+																						<label for="list_address" >Mailing List Name</label>
+																						<input type="text"  id="list_address" name="list_address" class="form-control"  placeholder="Your List Name" required autofocus >
+																						</div>
+																					</div>
+																					<div class="form-group">
+																						<div class="input-group">
+																							<label for="list_Description" >Mailing List Description</label>
+																							<textarea name="list_description" id="list_Description" style="resize: none" class="form-control" rows="3" cols="100" required></textarea>
+																						</div>
+																					</div>
+																					<button class="btn btn-primary" type="submit" name="submit_list">Add New Mailing List</button>
+																				</div>
+																			</form>
+																		</div>
+																		<div role="tabpanel" class="tab-pane" id="panel2">
+																			<form role="form" action="" method="post" >
+																				<div style="background-color:white; padding:14px; ">
+																					<div class="form-group">
+																						<div class="input-group">
+																							<label for="inputSubject" >Mail Subject</label>
+																							<input type="text"  id="inputSubject" name="subject" class="form-control"  placeholder="Enter Subject Here" required autofocus >
+																							</div>
+																						</div>
+																						<div class="form-group">
+																							<div class="input-group">
+																								<label for="InputBody" >Mail Body</label>
+																								<textarea name="body" id="InputBody" style="resize: none" class="form-control" rows="5" cols="100" required></textarea>
+																							</div>
+																						</div>
+																						<div class="form-group">
+																							<div class="input-group">
+																								<label for="exampleSelect1">Select Mailing List</label>
+																								<select class="form-control" id="exampleSelect1" name="mail_list_option2">
+																									<option value="-1">Select Mailing List</option>
+																								      
+		    																					</select>
+    	</div>
+																						</div>
+																						<button class="btn btn-primary" type="submit" name="send_mail">Send Mail</button>
+																					</div>
+																				</form>
+																			</div>
+																		</div>
+																	</div>
 																</div>
 															</div>
 														</body>
