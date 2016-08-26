@@ -30,7 +30,17 @@
 	# This gives all functionalities to add users, send emails and et cetera
 	$mailgun = new Mailgun\Mailgun(MAILGUN_KEY, $client);
 
+	# Instantiate the client.
+	$mgClient = new Mailgun\Mailgun('key-9072bd52a084bd5f6254e4f4cc1f75f4');
+
+	# Issue the call to the client.
+	$result = $mgClient->get("lists", array());
 	
+	
+	# $dlist stores all the details of the mailing lists
+
+	$dlist = $result->http_response_body->items;
+
 	
 	# This validates the email
 
