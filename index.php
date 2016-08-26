@@ -15,6 +15,43 @@
 			header('Location: http://localhost/webapp'); 
 	}
 
+# Function to add a new client to desired Mailing List
+	function addNewClient($clientEmail, $clientName,$mailgunkey, $mailgunsecret, $mailList, $mailgundomain, $mgValidate, $mgOptIn)
+	{
+		$mailgun = new Mailgun\Mailgun($mailgunkey);
+		$validate = $mgValidate->get('address/validate',[
+
+					'address'=> $clientEmail
+
+				])->http_response_body;
+
+			if($validate->is_valid)
+			{
+				
+				# Generating hash and sending a confirmation mail to the client with confirmation linkg
+				$hash = $mgOptIn->generateHash($mailList, $mailgunsecret, $clientEmail);
+				$mailgun->sendMessage($mailgundomain, [
+					'from'    => 'test@samples.mailgun.org',
+					'to'   => $clientEmail,
+					'subject' => 'Please confirm the subscription',
+					'html' => 'Hello '.$clientName.' <br /><br /> You signed up! Please confirm by clicking the link below. <br /><br />
+
+						http://localhost/webapp/confirm.php?hash='.$hash
+
+					]);
+
+
+				# Adding the client to the list with subscribe option false
+				$mailgun->post('lists/' .$mailList. '/members',[
+
+						'name'			=> $clientName,
+						'address'			=> $clientEmail,
+						'subscribed'	=> 'no'
+
+					]);
+			}
+		}
+
 # Function to add new Mailing List
 
 	function createMailingList($mailgunkey, $mailgundomain, $address, $description) {
