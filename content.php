@@ -72,7 +72,12 @@
 																	    			<label for="exampleSelect1">Select Mailing List</label>
 																			    	<select class="form-control" name="mail_list_option" id="exampleSelect1">
 																			      		<option value="-1">Select Mailing List</option>
-																					      
+																					      <?php 
+																					      	for ($i=0;$i<sizeof($dlist);$i++) {
+																							    echo '<option  style="font-weight: 800; text-transform:uppercase" value="'.$dlist[$i]->address.'">'.substr($dlist[$i]->address, 0, strpos($dlist[$i]->address, "@")).'</option>';
+																							}
+
+																					      ?>
 																				    </select>
     	</div>
 																				</div>
@@ -133,7 +138,12 @@
 																								<label for="exampleSelect1">Select Mailing List</label>
 																								<select class="form-control" id="exampleSelect1" name="mail_list_option2">
 																									<option value="-1">Select Mailing List</option>
-																								      
+																								      <?php 
+																								      	for ($i=0;$i<sizeof($dlist);$i++) {
+																										    echo '<option  style="font-weight: 800; text-transform:uppercase" value="'.$dlist[$i]->address.'">'.substr($dlist[$i]->address, 0, strpos($dlist[$i]->address, "@")).'</option>';
+																										}
+
+																								      ?>
 		    																					</select>
     	</div>
 																						</div>
