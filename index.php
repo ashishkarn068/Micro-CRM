@@ -143,6 +143,16 @@ elseif (isset($_SESSION["email"]))
 		# adding component for adding client name and mail
 		include 'content.php';
 
+
+		if(isset($_POST['submit_client']))
+		{
+			$clientName = stripslashes($_POST['client_name']);
+			$clientEmail = stripslashes($_POST['client_email']);
+			$mailList 	 = stripcslashes($_POST['mail_list_option']);
+
+
+		}
+
 		if(isset($_POST['logout']))
 		{
 			
