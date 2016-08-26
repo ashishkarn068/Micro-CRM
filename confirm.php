@@ -40,7 +40,7 @@ if(isset($_GET['hash']))
 									<div class="container-fluid">
 										<br />
 										
-											<h2 class="form-signin-heading" style="text-align:center">Thank you for confirming!</h2>
+											<h2 class="form-signin-heading" style="text-align:center">Thank you for confirming! <br /> :)</h2>
 											
 												</div>
 												<!-- /container -->
