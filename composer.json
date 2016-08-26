@@ -1,5 +1,7 @@
 {
 	"require":{
-		"mailgun/mailgun-php": "dev-master"
+		"mailgun/mailgun-php": "dev-master","guzzlehttp/guzzle": "~6.0",
+		"php-http/guzzle6-adapter": "^1.1",
+		"twbs/bootstrap": "^3.3"
 	}
 }
