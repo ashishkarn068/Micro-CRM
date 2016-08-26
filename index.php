@@ -105,7 +105,6 @@
 		}
 
 
-
 # Checking is submit button is clicked or login form is submitted
 if(isset($_POST['submit']))
 	{
@@ -137,7 +136,7 @@ if(isset($_POST['submit']))
 # Checking if there is an existing session or not if yes then redirecting to same page with different content
 elseif (isset($_SESSION["email"]))
 	{
-		echo $_SESSION["email"];
+		
 		
 
 		# adding component for adding client name and mail
