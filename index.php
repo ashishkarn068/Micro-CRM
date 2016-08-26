@@ -15,6 +15,31 @@
 			header('Location: http://localhost/webapp'); 
 	}
 
+# Function to add new Mailing List
+
+	function createMailingList($mailgunkey, $mailgundomain, $address, $description) {
+	    #functinality to create a new mailing list
+
+				$mgClient2 = new Mailgun\Mailgun($mailgunkey);
+
+				try{
+
+					# Issue the call to the client.
+					$result = $mgClient2->post("lists", [
+				    'address'     => $address.'@'.$mailgundomain,
+				    'description' => $description
+				    //'name'		  => 'Technical Support'
+
+				]);
+
+
+				}
+				catch(Exception $e)
+				{
+					echo $e->getMessage();
+				}
+				header('Location: http://localhost/webapp');
+	}
 
 # Checking is submit button is clicked or login form is submitted
 if(isset($_POST['submit']))
