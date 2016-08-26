@@ -164,10 +164,17 @@ elseif (isset($_SESSION["email"]))
 				$body 	 = stripcslashes($_POST['body']);
 				$$mailList 	 = stripcslashes($_POST['mail_list_option2']);
 				$ExceptionMsg = NULL;
+
+
+				# Calling  sendNewMail() to send a new mail to a specific Mailing List
+
+				sendNewMail(MAILGUN_KEY, MAILGUN_DOMAIN, $mailList, $subject, $body);
+
+
 				
 			}
 
-
+			
 		if(isset($_POST['logout']))
 		{
 			
